@@ -1,25 +1,25 @@
 import parse from 'html-react-parser';
 import moment from "moment";
 
-export default function Comments({ comments }) {
+export default function Comments({ commentsData }) {
     return <>
-        {comments.map(comment => <Node comment={comment} key={comment.id}
+        {commentsData.map(commentData => <Node commentData={commentData} key={commentData.id}
         />)}
     </>
 }
 
-function Node({ comment }) {
+function Node({ commentData }) {
     return <div className="comment">
         {
-            comment.text &&
+            commentData.text &&
             <>
                 <div className='comment-metadata'>
-                    <span>{comment.author}</span>
-                    <span>{moment(comment.created_at).fromNow()}</span>
+                    <span>{commentData.author}</span>
+                    <span>{moment(commentData.created_at).fromNow()}</span>
                 </div>
-                <div className='comment-text'>{parse(comment.text)}</div>
+                <div className='comment-text'>{parse(commentData.text)}</div>
             </>
         }
-        <div className='comment-replies'>{(comment.children) && comment.children.map(child => <Node comment={child} key={child.id}/>)}</div>
+        <div className='comment-replies'>{(commentData.children) && commentData.children.map(child => <Node commentData={child} key={child.id}/>)}</div>
     </div>
 }

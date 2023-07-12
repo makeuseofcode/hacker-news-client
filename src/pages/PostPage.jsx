@@ -27,7 +27,7 @@ export default function PostPage() {
             {data.text && <div className="post-text">{parse(data.text)}</div>}
             <div className="post-comments">
                 <div className="comments-label">Comments</div>
-                <Comments comments={data.children} />
+                <Comments commentsData={data.children} />
             </div>
         </div>
     }

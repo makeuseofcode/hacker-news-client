@@ -1,8 +1,8 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 export default function ListPage() {
     let { type } = useParams();
-    const navigate = useNavigate();
+
     if (!type) type = "news";
     const { loading, error, data } = useFetch(type, null);
 
@@ -24,7 +24,4 @@ export default function ListPage() {
             </div>)}</div>
         </div>
     }
-
-
-    // return
 }
