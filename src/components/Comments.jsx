@@ -15,11 +15,18 @@ function Node({ commentData }) {
             <>
                 <div className='comment-metadata'>
                     <span>{commentData.author}</span>
-                    <span>{moment(commentData.created_at).fromNow()}</span>
+                    <span>
+                         {moment(commentData.created_at).fromNow()}
+​​​​​​​                    </span>
                 </div>
-                <div className='comment-text'>{parse(commentData.text)}</div>
+                <div className='comment-text'>
+                {parse(commentData.text)}</div>
             </>
         }
-        <div className='comment-replies'>{(commentData.children) && commentData.children.map(child => <Node commentData={child} key={child.id}/>)}</div>
+        <div className='comment-replies'>
+        {(commentData.children) && 
+        commentData.children.map(child => 
+        <Node commentData={child} key={child.id}/>)}
+        </div>
     </div>
 }
