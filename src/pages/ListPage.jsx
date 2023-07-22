@@ -15,14 +15,22 @@ export default function ListPage() {
         return <div>Loading</div>
     }
 
-    if (data) {
-        document.title = type.toUpperCase();
-        return <div>
-            <div className='list-type'>{type}</div>
-            <div>{data.map(item => <div key={item.id} className="item">
-                <div className="item-title" onClick={() => navigate(`/item/${item.id}`)}>{item.title}</div>
-                {item.domain && <span className="item-link" onClick={() => open(`${item.url}`)}>({item.domain})</span>}
-            </div>)}</div>
-        </div>
-    }
+if (data) {
+    document.title = type.toUpperCase();
+    return <div>
+        <div className='list-type'>{type}</div>
+           <div>{data.map(item => 
+              <div key={item.id} className="item">
+                 <div className="item-title" 
+                  onClick={() => navigate(`/item/${item.id}`)}>
+                     {item.title}
+                 </div>
+            {item.domain && 
+            <span className="item-link" 
+             onClick={() => open(`${item.url}`)}>
+             ({item.domain})</span>}
+           </div>)}
+​​​​​​​        </div>
+    </div>
+}
 }
