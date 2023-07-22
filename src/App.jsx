@@ -7,11 +7,17 @@ function App() {
 
   return (
     <>
-      <Routes>
-        <Route path='/' element={<> <Navbar /><ListPage /></>}></Route>
-        <Route path='/:type' element={<> <Navbar /><ListPage /></>}></Route>
-        <Route path='/item/:id' element={<PostPage />}></Route>
-      </Routes>
+<Routes>
+    <Route path='/' 
+     element={<> <Navbar /><ListPage /></>}>
+    </Route>
+    <Route path='/:type' 
+     element={<> <Navbar /><ListPage /></>}>
+    </Route>
+    <Route path='/item/:id' 
+     element={<PostPage />}>
+​​​​​​​    </Route>
+</Routes>
     </>
   )
 }
